@@ -3,6 +3,7 @@ require('./config/blogdb')
 const { use } = require( 'express/lib/application')
 const express = require("express");
 const blogRouter = require("./router/blogRouter")
+// const commentRouter = require('./router/commentRouter')
 
 const cors = require("cors");
 
@@ -20,8 +21,7 @@ app.get("/", (req, res) => {
 
 app.use(express.json());
 app.use("/api", blogRouter);
-app.use(cors("*"));
-// app.use("/blog/api", connect);
+// app.use( '/api', commentRouter)
 app.listen(port, () => {
   console.log(`server is running at port ${port}`);
 });

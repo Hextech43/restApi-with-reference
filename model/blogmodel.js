@@ -14,7 +14,7 @@ const blogSchema = new Schema ({
         required: true
 
     },
-    comment:[{
+    comments:[{
         type: Schema.Types.ObjectId,
         ref: "comment"
     }]
