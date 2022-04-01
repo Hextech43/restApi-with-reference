@@ -6,11 +6,10 @@ const blogModel = require( '../model/blogmodel')
 const newComment = async ( req, res ) => {
     try {
         // get the id from the params
-
         const blogId = req.params.id;
         // get the document allocated to that id
         const blog = await blogModel.findById( blogId );
-        // console.log
+        console.log
         // create new comment instance
         const comm = new commentModel(req.body)
         // tigh comment to a document
@@ -21,7 +20,7 @@ const newComment = async ( req, res ) => {
         blog.comments.push( comm )
         // save the blog
         blog.save()
-        res.status( 201 ).json( {
+        res.status( 200 ).json( {
             status: 'success',
             data: comm
         })
@@ -34,6 +33,8 @@ const newComment = async ( req, res ) => {
         })
     }
 }
+
+
 
 // get all comment
 const allComment = async ( req, res ) => {
@@ -56,9 +57,4 @@ const allComment = async ( req, res ) => {
         })
     }
 }
-
-
-module.exports = {
-    newComment,
-    allComment
-}
+module.exports = {newComment,allComment}
